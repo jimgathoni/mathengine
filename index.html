@@ -1,0 +1,1300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>∑ Industrial Mathematics Command Center</title>
+    <meta name="description" content="BIM 3.2 Academic Dashboard — A study ecosystem for Industrial Mathematics students at JKUAT">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="extra.css">
+    <link rel="stylesheet" href="features4.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Animated Math Background -->
+    <canvas id="mathCanvas"></canvas>
+
+    <div class="app-shell">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <!-- Sidebar background image -->
+            <div class="sidebar-bg-img">
+                <img src="file:///C:/Users/JIM%20GITHUTHWA%20GATHON/.gemini/antigravity/brain/40aa4f66-cfbf-409d-a7e3-0d66d70dd604/matrix_equations_art_1778187905035.png" alt="">
+            </div>
+
+            <div class="sidebar-brand">
+                <div class="brand-icon">∑</div>
+                <div class="brand-text">
+                    <span class="brand-name">MathEngine</span>
+                    <span class="brand-sub">BIM 3.2 · JKUAT</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#" class="nav-item active" data-view="dashboard" id="nav-dashboard">
+                    <span class="nav-icon">◈</span>
+                    <span class="nav-label">Dashboard</span>
+                </a>
+                <a href="#" class="nav-item" data-view="calendar" id="nav-calendar">
+                    <span class="nav-icon">▦</span>
+                    <span class="nav-label">Week Matrix</span>
+                </a>
+                <a href="#" class="nav-item" data-view="studyplan" id="nav-studyplan">
+                    <span class="nav-icon">⊞</span>
+                    <span class="nav-label">Study Planner</span>
+                </a>
+                <a href="#" class="nav-item" data-view="units" id="nav-units">
+                    <span class="nav-icon">∫</span>
+                    <span class="nav-label">Unit Vectors</span>
+                </a>
+                <a href="#" class="nav-item" data-view="progress" id="nav-progress">
+                    <span class="nav-icon">◎</span>
+                    <span class="nav-label">Progress</span>
+                </a>
+                <a href="#" class="nav-item" data-view="grades" id="nav-grades">
+                    <span class="nav-icon">Σ</span>
+                    <span class="nav-label">Grade Calc</span>
+                </a>
+                <a href="#" class="nav-item" data-view="revision" id="nav-revision">
+                    <span class="nav-icon">📚</span>
+                    <span class="nav-label">Revision Hub</span>
+                </a>
+                <a href="#" class="nav-item" data-view="tasks" id="nav-tasks">
+                    <span class="nav-icon">📋</span>
+                    <span class="nav-label">Task Board</span>
+                </a>
+                <a href="#" class="nav-item" data-view="flashcards" id="nav-flashcards">
+                    <span class="nav-icon">🃏</span>
+                    <span class="nav-label">Flashcards</span>
+                </a>
+                <a href="#" class="nav-item" data-view="stats" id="nav-stats">
+                    <span class="nav-icon">📊</span>
+                    <span class="nav-label">Study Stats</span>
+                </a>
+                <a href="#" class="nav-item" data-view="alerts" id="nav-alerts">
+                    <span class="nav-icon">🔔</span>
+                    <span class="nav-label">Notifications</span>
+                </a>
+                <a href="#" class="nav-item" data-view="groupwork" id="nav-groupwork">
+                    <span class="nav-icon">👥</span>
+                    <span class="nav-label">Group Work</span>
+                </a>
+                <a href="#" class="nav-item" data-view="resources" id="nav-resources">
+                    <span class="nav-icon">📖</span>
+                    <span class="nav-label">Resources</span>
+                </a>
+                <a href="#" class="nav-item" data-view="attendance" id="nav-attendance">
+                    <span class="nav-icon">📅</span>
+                    <span class="nav-label">Attendance</span>
+                </a>
+                <a href="#" class="nav-item" data-view="selftest" id="nav-selftest">
+                    <span class="nav-icon">🧪</span>
+                    <span class="nav-label">Self-Test</span>
+                </a>
+                <a href="#" class="nav-item" data-view="smartnotes" id="nav-smartnotes">
+                    <span class="nav-icon">📝</span>
+                    <span class="nav-label">Smart Notes</span>
+                </a>
+                <a href="#" class="nav-item" data-view="pastpapers" id="nav-pastpapers">
+                    <span class="nav-icon">📄</span>
+                    <span class="nav-label">Past Papers</span>
+                </a>
+                <a href="#" class="nav-item" data-view="focus" id="nav-focus">
+                    <span class="nav-icon">🎯</span>
+                    <span class="nav-label">Focus Mode</span>
+                </a>
+                <a href="#" class="nav-item" data-view="settings" id="nav-settings">
+                    <span class="nav-icon">⚙</span>
+                    <span class="nav-label">Settings</span>
+                </a>
+            </nav>
+
+            <!-- Sidebar bottom mini gallery -->
+            <div class="sidebar-mini-gallery">
+                <img src="images/complex_variables.png" alt="Complex Variables" class="sidebar-mini-img">
+                <img src="images/optimization.png" alt="Optimization" class="sidebar-mini-img">
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="semester-badge">
+                    <span class="badge-dot"></span>
+                    Sem II · 2025/2026
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-area">
+            <!-- Top Bar -->
+            <header class="topbar">
+                <div class="topbar-left">
+                    <h1 class="page-title" id="page-title">The Control Room</h1>
+                    <p class="page-subtitle" id="page-subtitle">Real-time exam countdown &amp; study allocation</p>
+                </div>
+                <div class="topbar-right">
+                    <div class="live-clock" id="live-clock"></div>
+                    <div class="topbar-avatar">
+                        <span>JG</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- Dashboard View -->
+            <div class="view active" id="view-dashboard">
+                <!-- Hero Banner -->
+                <div class="hero-banner">
+                    <img src="images/math_banner.png" alt="Industrial Mathematics" class="hero-img">
+                    <div class="hero-overlay">
+                        <h2 class="hero-title">Industrial Mathematics</h2>
+                        <p class="hero-sub">BIM 3.2 · JKUAT · Semester II 2025/2026</p>
+                    </div>
+                </div>
+
+                <!-- Row 1: Key Metrics -->
+                <div class="metrics-row">
+                    <div class="metric-card" id="metric-next-exam">
+                        <div class="metric-icon glow-amber">⏱</div>
+                        <div class="metric-body">
+                            <span class="metric-value" id="next-exam-days">--</span>
+                            <span class="metric-label">Days to Next Deadline</span>
+                        </div>
+                    </div>
+                    <div class="metric-card" id="metric-total-units">
+                        <div class="metric-icon glow-cyan">∑</div>
+                        <div class="metric-body">
+                            <span class="metric-value">7</span>
+                            <span class="metric-label">Active Units</span>
+                        </div>
+                    </div>
+                    <div class="metric-card" id="metric-study-tonight">
+                        <div class="metric-icon glow-green">▶</div>
+                        <div class="metric-body">
+                            <span class="metric-value" id="blocks-tonight">--</span>
+                            <span class="metric-label">Study Blocks Tonight</span>
+                        </div>
+                    </div>
+                    <div class="metric-card" id="metric-exam-window">
+                        <div class="metric-icon glow-rose">◉</div>
+                        <div class="metric-body">
+                            <span class="metric-value" id="exam-window">--</span>
+                            <span class="metric-label">Exam Window (Days)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Image Strip between metrics and panels -->
+                <div class="img-strip">
+                    <div class="img-strip-item">
+                        <img src="images/math_banner.png" alt="JKUAT Campus">
+                        <span class="img-strip-label">JKUAT Industrial Mathematics</span>
+                    </div>
+                    <div class="img-strip-item">
+                        <img src="images/complex_variables.png" alt="Applied Mathematics">
+                        <span class="img-strip-label">Complex Variables</span>
+                    </div>
+                    <div class="img-strip-item">
+                        <img src="images/optimization.png" alt="Optimization">
+                        <span class="img-strip-label">Non-Linear Optimization</span>
+                    </div>
+                    <div class="img-strip-item">
+                        <img src="images/regression.png" alt="Regression">
+                        <span class="img-strip-label">Regression Modelling</span>
+                    </div>
+                </div>
+
+                <!-- Row 2: Main Panels -->
+                <div class="panels-row">
+                    <!-- Exam Countdown Panel -->
+                    <section class="panel panel-exams" id="panel-exams">
+                        <div class="panel-header">
+                            <h2 class="panel-title"><span class="formula-accent">f(x)</span> Exam Countdown</h2>
+                            <span class="panel-badge">Live</span>
+                        </div>
+                        <div class="panel-body" id="exams-list"></div>
+                    </section>
+
+                    <!-- Today's Schedule Panel -->
+                    <section class="panel panel-schedule" id="panel-schedule">
+                        <div class="panel-header">
+                            <h2 class="panel-title"><span class="formula-accent">∂/∂t</span> Today's Timeline</h2>
+                            <span class="panel-badge" id="today-label"></span>
+                        </div>
+                        <div class="panel-body" id="schedule-list"></div>
+                    </section>
+                </div>
+
+                <!-- Row 3: AI Allocation -->
+                <section class="panel panel-allocation" id="panel-allocation">
+                    <div class="panel-header">
+                        <h2 class="panel-title"><span class="formula-accent">∇</span> AI Study Allocation — Tonight</h2>
+                        <span class="panel-badge accent">Algorithm Active</span>
+                    </div>
+                    <div class="panel-body allocation-grid" id="allocation-list"></div>
+                </section>
+            </div>
+
+            <!-- Calendar View -->
+            <div class="view" id="view-calendar">
+                <!-- View Hero Banner -->
+                <div class="view-hero-banner">
+                    <img src="file:///C:/Users/JIM%20GITHUTHWA%20GATHON/.gemini/antigravity/brain/40aa4f66-cfbf-409d-a7e3-0d66d70dd604/matrix_equations_art_1778187905035.png" alt="Matrix Equations">
+                    <div class="view-hero-text">
+                        <span class="view-hero-label">Week Matrix</span>
+                        <span class="view-hero-sub">Your live class schedule — all 7 units mapped</span>
+                    </div>
+                </div>
+                <section class="panel panel-full">
+                    <div class="panel-header">
+                        <h2 class="panel-title"><span class="formula-accent">M</span> Weekly Class Matrix</h2>
+                    </div>
+                    <div class="panel-body">
+                        <div class="week-matrix" id="week-matrix"></div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Study Planner View -->
+            <div class="view" id="view-studyplan">
+                <!-- View Hero Banner -->
+                <div class="view-hero-banner">
+                    <img src="file:///C:/Users/JIM%20GITHUTHWA%20GATHON/.gemini/antigravity/brain/40aa4f66-cfbf-409d-a7e3-0d66d70dd604/applied_math_grid_1778187889222.png" alt="Applied Math">
+                    <div class="view-hero-text">
+                        <span class="view-hero-label">Study Planner</span>
+                        <span class="view-hero-sub">AI-generated plan from today to last exam</span>
+                    </div>
+                </div>
+
+                <!-- Week Navigation -->
+                <div class="studyplan-controls">
+                    <button class="sp-btn" id="sp-prev">↑ Scroll to Top</button>
+                    <h3 class="sp-week-label" id="sp-week-label">This Week</h3>
+                    <button class="sp-btn" id="sp-next">Jump to Exam Week ↓</button>
+                </div>
+
+                <!-- Legend -->
+                <div class="sp-legend">
+                    <span class="sp-legend-item"><span class="sp-dot" style="background:#38bdf8"></span> Class</span>
+                    <span class="sp-legend-item"><span class="sp-dot" style="background:#fbbf24"></span> CAT Prep</span>
+                    <span class="sp-legend-item"><span class="sp-dot" style="background:#fb7185"></span> Exam Prep</span>
+                    <span class="sp-legend-item"><span class="sp-dot" style="background:#a78bfa"></span> Assignment</span>
+                    <span class="sp-legend-item"><span class="sp-dot" style="background:#475569"></span> Break</span>
+                </div>
+
+                <!-- The Full Timetable Grid -->
+                <section class="panel panel-full">
+                    <div class="panel-header">
+                        <h2 class="panel-title"><span class="formula-accent">⊞</span> AI-Generated Study Timetable</h2>
+                        <span class="panel-badge accent">Auto-Filled</span>
+                    </div>
+                    <div class="panel-body sp-scroll">
+                        <div class="study-timetable" id="study-timetable"></div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Units View -->
+            <div class="view" id="view-units">
+                <!-- View Hero Banner -->
+                <div class="view-hero-banner">
+                    <img src="images/linear_algebra.png" alt="Linear Algebra">
+                    <div class="view-hero-text">
+                        <span class="view-hero-label">Unit Vectors</span>
+                        <span class="view-hero-sub">All 7 units — weights, deadlines &amp; priorities</span>
+                    </div>
+                </div>
+
+                <!-- Math Gallery -->
+                <div class="math-gallery">
+                    <div class="gallery-card">
+                        <img src="images/fluid_dynamics.png" alt="Fluid Dynamics Visualization">
+                        <div class="gallery-label">Fluid Dynamics &amp; Vector Fields</div>
+                    </div>
+                    <div class="gallery-card">
+                        <img src="images/linear_algebra.png" alt="Linear Algebra Visualization">
+                        <div class="gallery-label">Linear Algebra &amp; Eigenspaces</div>
+                    </div>
+                    <div class="gallery-card">
+                        <img src="images/complex_variables.png" alt="Complex Variables">
+                        <div class="gallery-label">Complex Variables</div>
+                    </div>
+                    <div class="gallery-card">
+                        <img src="images/measure_theory.png" alt="Measure Theory">
+                        <div class="gallery-label">Abstract Integration</div>
+                    </div>
+                </div>
+
+                <div class="units-grid" id="units-grid"></div>
+            </div>
+
+            <!-- Progress Tracker View -->
+            <div class="view" id="view-progress">
+                <!-- View Hero Banner -->
+                <div class="view-hero-banner">
+                    <img src="file:///C:/Users/JIM%20GITHUTHWA%20GATHON/.gemini/antigravity/brain/40aa4f66-cfbf-409d-a7e3-0d66d70dd604/jkuat_math_campus_1778187873994.png" alt="JKUAT Campus">
+                    <div class="view-hero-text">
+                        <span class="view-hero-label">Progress Tracker</span>
+                        <span class="view-hero-sub">Subtopic-by-subtopic syllabus coverage</span>
+                    </div>
+                </div>
+                <div class="progress-header-row">
+                    <div class="progress-summary-card">
+                        <div class="ps-title">Overall Syllabus Coverage</div>
+                        <div class="ps-bar-wrap"><div class="ps-bar" id="overall-bar"></div></div>
+                        <div class="ps-pct" id="overall-pct">0%</div>
+                    </div>
+                </div>
+                <div class="progress-units" id="progress-units"></div>
+            </div>
+
+            <!-- Grade Calculator View -->
+            <div class="view" id="view-grades">
+                <!-- View Hero Banner -->
+                <div class="view-hero-banner">
+                    <img src="file:///C:/Users/JIM%20GITHUTHWA%20GATHON/.gemini/antigravity/brain/40aa4f66-cfbf-409d-a7e3-0d66d70dd604/regression_stats_art_1778187127733.png" alt="Regression Stats">
+                    <div class="view-hero-text">
+                        <span class="view-hero-label">Grade Calculator</span>
+                        <span class="view-hero-sub">Know exactly what you need in the Final Exam</span>
+                    </div>
+                </div>
+                <div class="grade-intro">
+                    <h2 class="grade-intro-title">Grade Calculator</h2>
+                    <p class="grade-intro-sub">Enter your CAT scores to see exactly how many marks you need in the Final Exam.</p>
+                    <div class="grade-scheme">
+                        <span class="gs-item"><span class="gs-dot" style="background:#fbbf24"></span>CATs (×2) — 30 marks each → 30% of total</span>
+                        <span class="gs-item"><span class="gs-dot" style="background:#fb7185"></span>Final Exam — 70% of total</span>
+                    </div>
+                </div>
+                <div class="grade-grid" id="grade-grid"></div>
+            </div>
+
+            <!-- Revision Hub View -->
+            <div class="view" id="view-revision">
+                <!-- View Hero Banner -->
+                <div class="view-hero-banner tall">
+                    <img src="file:///C:/Users/JIM%20GITHUTHWA%20GATHON/.gemini/antigravity/brain/40aa4f66-cfbf-409d-a7e3-0d66d70dd604/applied_math_grid_1778187889222.png" alt="Applied Math Network">
+                    <div class="view-hero-text">
+                        <span class="view-hero-label">📚 Revision Hub</span>
+                        <span class="view-hero-sub">Formulas · Theorems · Exam Tips — All 7 units</span>
+                    </div>
+                </div>
+
+                <!-- Full Image Gallery (all 10 images) -->
+                <div class="rev-gallery">
+                    <div class="rev-gallery-card">
+                        <img src="images/complex_variables.png" alt="Complex Variables">
+                        <div class="rev-gallery-label">Complex Variables &amp; Residues</div>
+                    </div>
+                    <div class="rev-gallery-card">
+                        <img src="images/optimization.png" alt="Optimization">
+                        <div class="rev-gallery-label">Non-Linear Optimization Landscape</div>
+                    </div>
+                    <div class="rev-gallery-card">
+                        <img src="images/regression.png" alt="Regression">
+                        <div class="rev-gallery-label">Regression Modelling</div>
+                    </div>
+                    <div class="rev-gallery-card">
+                        <img src="images/measure_theory.png" alt="Measure Theory">
+                        <div class="rev-gallery-label">Abstract Integration &amp; Measure Theory</div>
+                    </div>
+                    <div class="rev-gallery-card">
+                        <img src="images/fluid_dynamics.png" alt="Fluid Dynamics">
+                        <div class="rev-gallery-label">Fluid Dynamics &amp; Vector Fields</div>
+                    </div>
+                    <div class="rev-gallery-card">
+                        <img src="images/linear_algebra.png" alt="Linear Algebra">
+                        <div class="rev-gallery-label">Linear Algebra &amp; Eigenspaces</div>
+                    </div>
+                    <div class="rev-gallery-card">
+                        <img src="images/math_banner.png" alt="JKUAT Campus">
+                        <div class="rev-gallery-label">JKUAT Industrial Mathematics</div>
+                    </div>
+                    <div class="rev-gallery-card">
+                        <img src="images/complex_variables.png" alt="Applied Math">
+                        <div class="rev-gallery-label">Applied Mathematics Network</div>
+                    </div>
+                    <div class="rev-gallery-card">
+                        <img src="images/linear_algebra.png" alt="Matrix Equations">
+                        <div class="rev-gallery-label">Matrix of Equations</div>
+                    </div>
+                    <div class="rev-gallery-card">
+                        <img src="images/regression.png" alt="Research Methodology">
+                        <div class="rev-gallery-label">Research Methodology &amp; Statistics</div>
+                    </div>
+                </div>
+
+                <!-- Revision Cards rendered by JS -->
+                <div class="rev-units" id="rev-units"></div>
+            </div>
+
+            <!-- ===== TASK BOARD VIEW ===== -->
+            <div class="view" id="view-tasks">
+                <div class="view-hero-banner">
+                    <img src="file:///C:/Users/JIM%20GITHUTHWA%20GATHON/.gemini/antigravity/brain/40aa4f66-cfbf-409d-a7e3-0d66d70dd604/applied_math_grid_1778187889222.png" alt="Tasks">
+                    <div class="view-hero-text">
+                        <span class="view-hero-label">📋 Task Board</span>
+                        <span class="view-hero-sub">Drag tasks across columns · Track assignments &amp; group work</span>
+                    </div>
+                </div>
+                <!-- Add Task Form -->
+                <div class="task-add-bar">
+                    <input type="text" id="task-title-input" class="task-input" placeholder="Task title (e.g. Write Fluid Dynamics intro)...">
+                    <select id="task-unit-select" class="task-select"></select>
+                    <select id="task-priority-select" class="task-select">
+                        <option value="high">🔴 High</option>
+                        <option value="medium" selected>🟡 Medium</option>
+                        <option value="low">🟢 Low</option>
+                    </select>
+                    <input type="date" id="task-date-input" class="task-input" style="max-width:160px">
+                    <button id="task-add-btn" class="btn btn-primary">+ Add Task</button>
+                </div>
+                <!-- Kanban Columns -->
+                <div class="kanban-board">
+                    <div class="kanban-col" id="col-todo" data-col="todo">
+                        <div class="kanban-col-header">
+                            <span class="kanban-col-title">📥 To Do</span>
+                            <span class="kanban-count" id="count-todo">0</span>
+                        </div>
+                        <div class="kanban-cards" id="cards-todo"></div>
+                    </div>
+                    <div class="kanban-col" id="col-inprogress" data-col="inprogress">
+                        <div class="kanban-col-header">
+                            <span class="kanban-col-title">⚡ In Progress</span>
+                            <span class="kanban-count" id="count-inprogress">0</span>
+                        </div>
+                        <div class="kanban-cards" id="cards-inprogress"></div>
+                    </div>
+                    <div class="kanban-col" id="col-done" data-col="done">
+                        <div class="kanban-col-header">
+                            <span class="kanban-col-title">✅ Done</span>
+                            <span class="kanban-count" id="count-done">0</span>
+                        </div>
+                        <div class="kanban-cards" id="cards-done"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== FLASHCARDS VIEW ===== -->
+            <div class="view" id="view-flashcards">
+                <div class="view-hero-banner">
+                    <img src="file:///C:/Users/JIM%20GITHUTHWA%20GATHON/.gemini/antigravity/brain/40aa4f66-cfbf-409d-a7e3-0d66d70dd604/complex_variables_art_1778187096251.png" alt="Flashcards">
+                    <div class="view-hero-text">
+                        <span class="view-hero-label">🃏 Flashcard System</span>
+                        <span class="view-hero-sub">Spaced repetition · Active recall · All 7 units</span>
+                    </div>
+                </div>
+                <!-- Flashcard Controls -->
+                <div class="fc-controls">
+                    <select id="fc-unit-filter" class="task-select">
+                        <option value="all">All Units</option>
+                    </select>
+                    <select id="fc-filter" class="task-select">
+                        <option value="all">All Cards</option>
+                        <option value="hard">🔴 Hard Only</option>
+                        <option value="medium">🟡 Medium Only</option>
+                        <option value="easy">🟢 Easy Only</option>
+                        <option value="new">🆕 Unrated</option>
+                    </select>
+                    <span class="fc-progress-label" id="fc-progress-label">Card 0 of 0</span>
+                    <button class="btn btn-secondary" id="fc-shuffle-btn">🔀 Shuffle</button>
+                </div>
+                <!-- The Card -->
+                <div class="fc-arena">
+                    <div class="fc-card" id="fc-card">
+                        <div class="fc-card-inner" id="fc-card-inner">
+                            <div class="fc-front" id="fc-front">
+                                <div class="fc-unit-tag" id="fc-unit-tag"></div>
+                                <div class="fc-question" id="fc-question">Select a unit to begin</div>
+                                <div class="fc-hint">Click to reveal answer</div>
+                            </div>
+                            <div class="fc-back" id="fc-back">
+                                <div class="fc-answer" id="fc-answer"></div>
+                                <div class="fc-rating">
+                                    <button class="fc-rate-btn hard" data-rating="hard">🔴 Hard</button>
+                                    <button class="fc-rate-btn medium" data-rating="medium">🟡 Medium</button>
+                                    <button class="fc-rate-btn easy" data-rating="easy">🟢 Easy</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fc-nav">
+                        <button class="btn btn-secondary" id="fc-prev-btn">← Prev</button>
+                        <button class="btn btn-secondary" id="fc-next-btn">Next →</button>
+                    </div>
+                </div>
+                <!-- Mastery Stats -->
+                <div class="fc-stats-row" id="fc-stats-row"></div>
+            </div>
+
+            <!-- ===== STUDY STATS VIEW ===== -->
+            <div class="view" id="view-stats">
+                <div class="view-hero-banner">
+                    <img src="file:///C:/Users/JIM%20GITHUTHWA%20GATHON/.gemini/antigravity/brain/40aa4f66-cfbf-409d-a7e3-0d66d70dd604/jkuat_math_campus_1778187873994.png" alt="Study Stats">
+                    <div class="view-hero-text">
+                        <span class="view-hero-label">📊 Study Stats &amp; Streak</span>
+                        <span class="view-hero-sub">Track your consistency · Sessions · Progress</span>
+                    </div>
+                </div>
+                <div class="stats-grid" id="stats-grid">
+                    <!-- Streak Card -->
+                    <div class="stat-big-card" id="streak-card">
+                        <div class="sbc-icon">🔥</div>
+                        <div class="sbc-value" id="streak-value">0</div>
+                        <div class="sbc-label">Day Streak</div>
+                        <div class="sbc-sub" id="streak-sub">Start studying today!</div>
+                    </div>
+                    <!-- Hours Card -->
+                    <div class="stat-big-card">
+                        <div class="sbc-icon">⏱</div>
+                        <div class="sbc-value" id="hours-value">0h</div>
+                        <div class="sbc-label">Total Hours Studied</div>
+                        <div class="sbc-sub" id="hours-sub">Via study timer sessions</div>
+                    </div>
+                    <!-- Score Card -->
+                    <div class="stat-big-card accent-card">
+                        <div class="sbc-icon">⭐</div>
+                        <div class="sbc-value" id="score-value">0</div>
+                        <div class="sbc-label">Study Score</div>
+                        <div class="sbc-sub" id="score-sub">Earn points by studying</div>
+                    </div>
+                    <!-- Cards Mastered -->
+                    <div class="stat-big-card">
+                        <div class="sbc-icon">🃏</div>
+                        <div class="sbc-value" id="cards-value">0</div>
+                        <div class="sbc-label">Flashcards Mastered</div>
+                        <div class="sbc-sub" id="cards-sub">Rated Easy</div>
+                    </div>
+                </div>
+                <!-- Weekly heatmap -->
+                <div class="stats-section">
+                    <div class="stats-section-title">This Week's Activity</div>
+                    <div class="week-heatmap" id="week-heatmap"></div>
+                </div>
+                <!-- Session log -->
+                <div class="stats-section">
+                    <div class="stats-section-title">Recent Study Sessions</div>
+                    <div class="session-log" id="session-log"></div>
+                </div>
+            </div>
+
+            <!-- ===== NOTIFICATIONS VIEW ===== -->
+            <div class="view" id="view-alerts">
+                <div class="view-hero-banner">
+                    <img src="file:///C:/Users/JIM%20GITHUTHWA%20GATHON/.gemini/antigravity/brain/40aa4f66-cfbf-409d-a7e3-0d66d70dd604/research_methodology_art_1778187919935.png" alt="Alerts">
+                    <div class="view-hero-text">
+                        <span class="view-hero-label">🔔 Smart Notifications</span>
+                        <span class="view-hero-sub">Exam alerts · Daily reminders · Deadline warnings</span>
+                    </div>
+                </div>
+                <div class="alerts-grid">
+                    <!-- Permission Card -->
+                    <div class="alert-perm-card" id="alert-perm-card">
+                        <div class="apc-icon">🔔</div>
+                        <div class="apc-text">
+                            <div class="apc-title">Browser Notification Permission</div>
+                            <div class="apc-sub" id="apc-status">Click below to enable notifications</div>
+                        </div>
+                        <button class="btn btn-primary" id="notif-enable-btn">Enable Notifications</button>
+                    </div>
+                    <!-- Daily Reminder -->
+                    <div class="alert-setting-card">
+                        <div class="asc-left">
+                            <div class="asc-icon">⏰</div>
+                            <div>
+                                <div class="asc-title">Daily Study Reminder</div>
+                                <div class="asc-sub">Get reminded to open MathEngine every day</div>
+                            </div>
+                        </div>
+                        <div class="asc-right">
+                            <input type="time" id="reminder-time" class="task-input" value="20:00" style="max-width:120px">
+                            <button class="btn btn-primary" id="set-reminder-btn">Set Reminder</button>
+                        </div>
+                    </div>
+                    <!-- Exam Alerts -->
+                    <div class="alert-setting-card">
+                        <div class="asc-left">
+                            <div class="asc-icon">📋</div>
+                            <div>
+                                <div class="asc-title">Upcoming Deadline Alerts</div>
+                                <div class="asc-sub">Receive alerts for each exam, CAT and deadline</div>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="test-alert-btn">🔔 Send Test Alert</button>
+                    </div>
+                    <!-- Scheduled alerts list -->
+                    <div class="alert-upcoming" id="alert-upcoming">
+                        <div class="stats-section-title">Upcoming Notifications</div>
+                        <div id="alerts-list"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== GROUP WORK TRACKER ===== -->
+            <div class="view" id="view-groupwork">
+                <div class="view-hero-banner">
+                    <img src="file:///C:/Users/JIM%20GITHUTHWA%20GATHON/.gemini/antigravity/brain/40aa4f66-cfbf-409d-a7e3-0d66d70dd604/jkuat_math_campus_1778187873994.png" alt="Group Work">
+                    <div class="view-hero-text">
+                        <span class="view-hero-label">👥 Group Work Tracker</span>
+                        <span class="view-hero-sub">Fluid Dynamics presentation · Document stages · Member tasks</span>
+                    </div>
+                </div>
+                <!-- Countdown Banner -->
+                <div class="gw-countdown-banner" id="gw-countdown-banner">
+                    <div class="gw-cd-item">
+                        <span class="gw-cd-icon">📄</span>
+                        <div><div class="gw-cd-label">Document Submission</div><div class="gw-cd-when">Sunday at 6:00 PM</div></div>
+                        <span class="gw-cd-time" id="gw-doc-countdown">--</span>
+                    </div>
+                    <div class="gw-cd-item">
+                        <span class="gw-cd-icon">🎤</span>
+                        <div><div class="gw-cd-label">Group Presentation</div><div class="gw-cd-when">Monday at 9:00 AM</div></div>
+                        <span class="gw-cd-time" id="gw-pres-countdown">--</span>
+                    </div>
+                </div>
+                <!-- Document Stage Tracker -->
+                <div class="gw-grid">
+                    <div class="gw-section">
+                        <div class="gw-section-title">📄 Document Progress</div>
+                        <div class="gw-stages" id="gw-stages">
+                            <div class="gw-stage" data-stage="outline"><span class="gw-stage-check" id="gw-outline">○</span><span>Outline / Structure</span></div>
+                            <div class="gw-stage" data-stage="draft"><span class="gw-stage-check" id="gw-draft">○</span><span>First Draft Written</span></div>
+                            <div class="gw-stage" data-stage="review"><span class="gw-stage-check" id="gw-review">○</span><span>Peer Review Done</span></div>
+                            <div class="gw-stage" data-stage="final"><span class="gw-stage-check" id="gw-final">○</span><span>Final Version Ready</span></div>
+                            <div class="gw-stage" data-stage="submitted"><span class="gw-stage-check" id="gw-submitted">○</span><span>🌟 Submitted on LMS</span></div>
+                        </div>
+                    </div>
+                    <div class="gw-section">
+                        <div class="gw-section-title">🎤 Presentation Slides</div>
+                        <div class="gw-stages" id="gw-slides">
+                            <div class="gw-stage" data-stage="slide-intro"><span class="gw-stage-check" id="gw-slide-intro">○</span><span>Introduction Slides</span></div>
+                            <div class="gw-stage" data-stage="slide-theory"><span class="gw-stage-check" id="gw-slide-theory">○</span><span>Theory &amp; Equations</span></div>
+                            <div class="gw-stage" data-stage="slide-results"><span class="gw-stage-check" id="gw-slide-results">○</span><span>Results &amp; Analysis</span></div>
+                            <div class="gw-stage" data-stage="slide-conc"><span class="gw-stage-check" id="gw-slide-conc">○</span><span>Conclusions</span></div>
+                            <div class="gw-stage" data-stage="slide-practice"><span class="gw-stage-check" id="gw-slide-practice">○</span><span>Rehearsal Done</span></div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Member Task Board -->
+                <div class="gw-section" style="margin-top:20px">
+                    <div class="gw-section-header">
+                        <div class="gw-section-title">👤 Group Member Tasks</div>
+                        <div class="gw-member-add">
+                            <input type="text" id="gw-member-name" class="task-input" placeholder="Member name..." style="max-width:160px">
+                            <input type="text" id="gw-member-task" class="task-input" placeholder="Assigned section...">
+                            <button class="btn btn-primary" id="gw-add-member">+ Add Member</button>
+                        </div>
+                    </div>
+                    <div class="gw-members" id="gw-members"></div>
+                </div>
+                <!-- Notes -->
+                <div class="gw-section" style="margin-top:16px">
+                    <div class="gw-section-title">📝 Group Notes</div>
+                    <textarea class="gw-notes" id="gw-notes" placeholder="Add shared notes, references, meeting times..."></textarea>
+                </div>
+            </div>
+
+            <!-- ===== RESOURCES VIEW ===== -->
+            <div class="view" id="view-resources">
+                <div class="view-hero-banner">
+                    <img src="file:///C:/Users/JIM%20GITHUTHWA%20GATHON/.gemini/antigravity/brain/40aa4f66-cfbf-409d-a7e3-0d66d70dd604/applied_math_grid_1778187889222.png" alt="Resources">
+                    <div class="view-hero-text">
+                        <span class="view-hero-label">📖 Resources &amp; Reading List</span>
+                        <span class="view-hero-sub">Textbooks · Video lectures · MIT OCW · Khan Academy</span>
+                    </div>
+                </div>
+                <!-- Formula Search Bar -->
+                <div class="res-search-bar">
+                    <span class="res-search-icon">🔍</span>
+                    <input type="text" id="formula-search" class="res-search-input" placeholder="Search formulas and theorems across all 7 units (e.g. 'residue', 'navier', 'eigenvalue')...">
+                    <button class="btn btn-secondary" id="formula-search-clear">Clear</button>
+                </div>
+                <div id="formula-search-results" class="formula-search-results" style="display:none"></div>
+                <!-- Unit resource accordion -->
+                <div id="resources-list"></div>
+            </div>
+
+            <!-- ===== ATTENDANCE TRACKER ===== -->
+            <div class="view" id="view-attendance">
+                <div class="view-hero-banner">
+                    <img src="file:///C:/Users/JIM%20GITHUTHWA%20GATHON/.gemini/antigravity/brain/40aa4f66-cfbf-409d-a7e3-0d66d70dd604/matrix_equations_art_1778187905035.png" alt="Attendance">
+                    <div class="view-hero-text">
+                        <span class="view-hero-label">📅 Attendance Tracker</span>
+                        <span class="view-hero-sub">Mark attendance per class · Stay above 75% to keep CAT eligibility</span>
+                    </div>
+                </div>
+                <div class="att-warning-bar">
+                    <span>⚠️ JKUAT Policy: You must attend at least <strong>75%</strong> of lectures to sit for the final exam.</span>
+                </div>
+                <div id="attendance-units"></div>
+            </div>
+
+            <!-- ===== SELF-TEST / EXAM SIMULATION ===== -->
+            <div class="view" id="view-selftest">
+                <div class="view-hero-banner">
+                    <img src="file:///C:/Users/JIM%20GITHUTHWA%20GATHON/.gemini/antigravity/brain/40aa4f66-cfbf-409d-a7e3-0d66d70dd604/regression_stats_art_1778187127733.png" alt="Self Test">
+                    <div class="view-hero-text">
+                        <span class="view-hero-label">🧪 Self-Test &amp; Exam Simulation</span>
+                        <span class="view-hero-sub">Add your own questions · Timed sessions · Track score over time</span>
+                    </div>
+                </div>
+
+                <!-- Tab bar: Question Bank | Run Exam | Score History -->
+                <div class="st-tabs">
+                    <button class="st-tab active" data-stab="bank">📚 Question Bank</button>
+                    <button class="st-tab" data-stab="setup">⚙ Setup Exam</button>
+                    <button class="st-tab" data-stab="history">📈 Score History</button>
+                </div>
+
+                <!-- PANEL: Question Bank -->
+                <div class="st-panel active" id="st-panel-bank">
+                    <!-- Add question form -->
+                    <div class="st-add-card">
+                        <div class="st-add-row">
+                            <select id="st-unit-sel" class="task-select">
+                                <option value="General">📌 General</option>
+                            </select>
+                            <select id="st-type-sel" class="task-select">
+                                <option value="mcq">Multiple Choice</option>
+                                <option value="short">Short Answer</option>
+                                <option value="truefalse">True / False</option>
+                            </select>
+                            <select id="st-diff-sel" class="task-select">
+                                <option value="easy">🟢 Easy</option>
+                                <option value="medium" selected>🟡 Medium</option>
+                                <option value="hard">🔴 Hard</option>
+                            </select>
+                        </div>
+                        <textarea id="st-q-input" class="st-textarea" placeholder="Type your question here..."></textarea>
+                        <div id="st-mcq-options" class="st-mcq-options">
+                            <div class="st-option-row"><span class="st-opt-label">A</span><input class="task-input" id="st-opt-a" placeholder="Option A"></div>
+                            <div class="st-option-row"><span class="st-opt-label">B</span><input class="task-input" id="st-opt-b" placeholder="Option B"></div>
+                            <div class="st-option-row"><span class="st-opt-label">C</span><input class="task-input" id="st-opt-c" placeholder="Option C"></div>
+                            <div class="st-option-row"><span class="st-opt-label">D</span><input class="task-input" id="st-opt-d" placeholder="Option D"></div>
+                            <div class="st-option-row">
+                                <span class="st-opt-label">✓</span>
+                                <select id="st-correct-sel" class="task-select">
+                                    <option value="A">Correct: A</option>
+                                    <option value="B">Correct: B</option>
+                                    <option value="C">Correct: C</option>
+                                    <option value="D">Correct: D</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="st-short-answer" class="st-short-answer" style="display:none">
+                            <input class="task-input" id="st-model-ans" placeholder="Model answer (will be shown after answering)..." style="width:100%">
+                        </div>
+                        <div id="st-tf-answer" class="st-short-answer" style="display:none">
+                            <select id="st-tf-sel" class="task-select">
+                                <option value="True">True</option>
+                                <option value="False">False</option>
+                            </select>
+                        </div>
+                        <div class="st-add-footer">
+                            <span id="st-bank-count" class="st-count-label">0 questions in bank</span>
+                            <button class="btn btn-primary" id="st-add-q-btn">+ Add Question</button>
+                        </div>
+                    </div>
+                    <!-- Question list -->
+                    <div id="st-question-list"></div>
+                </div>
+
+                <!-- PANEL: Setup & Run Exam -->
+                <div class="st-panel" id="st-panel-setup">
+                    <!-- Setup form (shown before exam starts) -->
+                    <div id="st-setup-form">
+                        <div class="st-setup-grid">
+                            <div class="st-setup-field">
+                                <label class="st-label">Filter by Unit</label>
+                                <select id="st-exam-unit" class="task-select" style="width:100%">
+                                    <option value="all">All Units</option>
+                                </select>
+                            </div>
+                            <div class="st-setup-field">
+                                <label class="st-label">Filter by Difficulty</label>
+                                <select id="st-exam-diff" class="task-select" style="width:100%">
+                                    <option value="all">All Difficulties</option>
+                                    <option value="easy">🟢 Easy Only</option>
+                                    <option value="medium">🟡 Medium Only</option>
+                                    <option value="hard">🔴 Hard Only</option>
+                                </select>
+                            </div>
+                            <div class="st-setup-field">
+                                <label class="st-label">Number of Questions</label>
+                                <select id="st-exam-count" class="task-select" style="width:100%">
+                                    <option value="5">5 Questions</option>
+                                    <option value="10" selected>10 Questions</option>
+                                    <option value="20">20 Questions</option>
+                                    <option value="all">All Available</option>
+                                </select>
+                            </div>
+                            <div class="st-setup-field">
+                                <label class="st-label">Time Limit</label>
+                                <select id="st-exam-time" class="task-select" style="width:100%">
+                                    <option value="0">No Limit</option>
+                                    <option value="10">10 minutes</option>
+                                    <option value="20">20 minutes</option>
+                                    <option value="30" selected>30 minutes</option>
+                                    <option value="60">60 minutes (CAT sim)</option>
+                                    <option value="120">120 minutes (Exam sim)</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary" id="st-start-exam-btn" style="margin-top:20px;width:100%;padding:14px;font-size:1rem">🧪 Start Exam Simulation</button>
+                    </div>
+
+                    <!-- Live Exam Arena (hidden until started) -->
+                    <div id="st-exam-arena" style="display:none">
+                        <div class="st-exam-header">
+                            <span class="st-exam-progress" id="st-exam-progress">Question 1 of 10</span>
+                            <div class="st-exam-timer" id="st-exam-timer">30:00</div>
+                            <button class="btn btn-secondary" id="st-submit-exam-btn">Submit Exam</button>
+                        </div>
+                        <div class="st-exam-qcard" id="st-exam-qcard">
+                            <div class="st-exam-meta" id="st-exam-meta"></div>
+                            <div class="st-exam-question" id="st-exam-question"></div>
+                            <div id="st-exam-choices"></div>
+                            <div id="st-exam-short-input" style="display:none">
+                                <textarea class="st-textarea" id="st-user-short-ans" placeholder="Write your answer..."></textarea>
+                            </div>
+                        </div>
+                        <div class="st-exam-nav">
+                            <button class="btn btn-secondary" id="st-prev-q">← Prev</button>
+                            <div class="st-q-dots" id="st-q-dots"></div>
+                            <button class="btn btn-secondary" id="st-next-q">Next →</button>
+                        </div>
+                    </div>
+
+                    <!-- Results Panel (hidden until submitted) -->
+                    <div id="st-results-panel" style="display:none">
+                        <div class="st-results-hero">
+                            <div class="st-score-circle" id="st-score-circle">
+                                <span class="st-score-val" id="st-score-val">0%</span>
+                                <span class="st-score-lbl">Score</span>
+                            </div>
+                            <div class="st-results-stats" id="st-results-stats"></div>
+                        </div>
+                        <div class="st-review-list" id="st-review-list"></div>
+                        <button class="btn btn-primary" id="st-retry-btn" style="margin-top:16px">↩ New Exam</button>
+                    </div>
+                </div>
+
+                <!-- PANEL: Score History -->
+                <div class="st-panel" id="st-panel-history">
+                    <div id="st-history-list"></div>
+                </div>
+            </div>
+
+            <!-- ===== SMART NOTES ===== -->
+            <div class="view" id="view-smartnotes">
+                <div class="view-hero-banner">
+                    <img src="file:///C:/Users/JIM%20GITHUTHWA%20GATHON/.gemini/antigravity/brain/40aa4f66-cfbf-409d-a7e3-0d66d70dd604/research_methodology_art_1778187919935.png" alt="Smart Notes">
+                    <div class="view-hero-text">
+                        <span class="view-hero-label">📝 Smart Notes Optimizer</span>
+                        <span class="view-hero-sub">Import reading material · Auto-extract key points · Study-ready in seconds</span>
+                    </div>
+                </div>
+
+                <!-- Tabs -->
+                <div class="st-tabs">
+                    <button class="st-tab active" data-sntab="import">📥 Import &amp; Optimize</button>
+                    <button class="st-tab" data-sntab="saved">📚 My Notes</button>
+                    <button class="st-tab" data-sntab="study">🎯 Study Mode</button>
+                </div>
+
+                <!-- PANEL: Import -->
+                <div class="sn-panel active" id="sn-panel-import">
+                    <div class="sn-import-card">
+                        <div class="sn-import-top">
+                            <!-- Left: file drop zone — input is OUTSIDE to prevent click loops -->
+                            <input type="file" id="sn-file-input" accept=".txt,.md,.text,.csv" style="display:none;position:absolute">
+                            <div class="sn-drop-zone" id="sn-drop-zone">
+                                <div class="sn-drop-icon">📂</div>
+                                <div class="sn-drop-title">Drop file here or click to browse</div>
+                                <div class="sn-drop-sub">.txt · .md · .csv files supported</div>
+                            </div>
+                            <!-- Right: metadata -->
+                            <div class="sn-import-meta">
+                                <label class="st-label">Note Title</label>
+                                <input type="text" id="sn-title" class="task-input" placeholder="e.g. Complex Variables — Residue Theorem" style="width:100%;margin-bottom:10px">
+                                <label class="st-label">Unit</label>
+                                <select id="sn-unit" class="task-select" style="width:100%;margin-bottom:10px">
+                                    <option value="General">📌 General</option>
+                                </select>
+                                <label class="st-label">Study Block (optional)</label>
+                                <input type="text" id="sn-block" class="task-input" placeholder="e.g. Mon 8–10 AM" style="width:100%;margin-bottom:10px">
+                                <label class="st-label">Optimize For</label>
+                                <select id="sn-mode" class="task-select" style="width:100%">
+                                    <option value="definitions">📖 Definitions &amp; Theorems</option>
+                                    <option value="steps">🔢 Step-by-Step Procedures</option>
+                                    <option value="summary">⚡ Quick Summary (Key Points)</option>
+                                    <option value="full">🗂 Full Structured Notes</option>
+                                </select>
+                            </div>
+                        </div>
+                        <!-- Paste area -->
+                        <label class="st-label" style="margin-bottom:6px;display:block">Or paste notes directly below</label>
+                        <textarea id="sn-paste" class="st-textarea" style="min-height:180px" placeholder="Paste your lecture notes, textbook sections, or any study material here..."></textarea>
+                        <div class="sn-import-footer">
+                            <div class="sn-char-count" id="sn-char-count">0 characters</div>
+                            <div style="display:flex;gap:10px">
+                                <button class="btn btn-secondary" id="sn-clear-btn">Clear</button>
+                                <button class="btn btn-primary" id="sn-optimize-btn">⚡ Optimize Notes</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Optimization Result -->
+                    <div class="sn-result-card" id="sn-result-card" style="display:none">
+                        <div class="sn-result-header">
+                            <div>
+                                <div class="sn-result-title" id="sn-result-title">Optimized Notes</div>
+                                <div class="sn-result-meta" id="sn-result-meta"></div>
+                            </div>
+                            <div style="display:flex;gap:8px">
+                                <button class="btn btn-secondary" id="sn-copy-btn">📋 Copy</button>
+                                <button class="btn btn-primary" id="sn-save-btn">💾 Save to My Notes</button>
+                            </div>
+                        </div>
+                        <div class="sn-result-body" id="sn-result-body"></div>
+                        <!-- Stats bar -->
+                        <div class="sn-stats-bar" id="sn-stats-bar"></div>
+                    </div>
+                </div>
+
+                <!-- PANEL: My Notes -->
+                <div class="sn-panel" id="sn-panel-saved">
+                    <div class="sn-saved-header">
+                        <div class="sn-search-wrap">
+                            <span>🔍</span>
+                            <input type="text" id="sn-search" class="res-search-input" placeholder="Search saved notes...">
+                        </div>
+                        <select id="sn-filter-unit" class="task-select">
+                            <option value="all">All Units</option>
+                        </select>
+                    </div>
+                    <div id="sn-saved-list"></div>
+                </div>
+
+                <!-- PANEL: Study Mode -->
+                <div class="sn-panel" id="sn-panel-study">
+                    <div class="sn-study-empty" id="sn-study-empty">
+                        <div style="font-size:3rem;margin-bottom:12px">📖</div>
+                        <div style="font-weight:600;margin-bottom:6px">No note selected for study</div>
+                        <div style="font-size:0.85rem;color:var(--text-dim)">Go to My Notes and click <strong>Study</strong> on any saved note</div>
+                    </div>
+                    <div class="sn-study-view" id="sn-study-view" style="display:none">
+                        <div class="sn-study-toolbar">
+                            <div>
+                                <div class="sn-study-title" id="sn-study-title"></div>
+                                <div class="sn-study-unit" id="sn-study-unit"></div>
+                            </div>
+                            <div style="display:flex;gap:8px;align-items:center">
+                                <label class="st-label">Font size</label>
+                                <input type="range" id="sn-font-size" min="13" max="22" value="16" style="width:80px">
+                                <button class="btn btn-secondary" id="sn-print-btn">🖨 Print</button>
+                                <button class="btn btn-primary" id="sn-focus-study-btn">🎯 Focus Mode</button>
+                            </div>
+                        </div>
+                        <div class="sn-study-content" id="sn-study-content"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== PAST PAPERS VAULT ===== -->
+            <div class="view" id="view-pastpapers">
+                <div class="view-hero-banner">
+                    <img src="file:///C:/Users/JIM%20GITHUTHWA%20GATHON/.gemini/antigravity/brain/40aa4f66-cfbf-409d-a7e3-0d66d70dd604/research_methodology_art_1778187919935.png" alt="Past Papers">
+                    <div class="view-hero-text">
+                        <span class="view-hero-label">📄 Past Papers Vault</span>
+                        <span class="view-hero-sub">Import previous CATs and revision papers · Optimize for study · Extract practice questions</span>
+                    </div>
+                </div>
+
+                <!-- Upload bar -->
+                <div class="sn-import-card" style="flex-direction:row;align-items:center;gap:20px;flex-wrap:wrap">
+                    <input type="file" id="pp-file-input" accept=".txt,.md,.text,.csv" style="display:none;position:absolute">
+                    <div class="sn-drop-zone" id="pp-drop-zone" style="flex:1;min-width:220px;min-height:90px;padding:16px">
+                        <div class="sn-drop-icon">📥</div>
+                        <div class="sn-drop-title">Drop CAT / Revision Paper here</div>
+                        <div class="sn-drop-sub">.txt · .md files — or paste below</div>
+                    </div>
+                    <div style="flex:2;min-width:260px;display:flex;flex-direction:column;gap:10px">
+                        <input type="text" id="pp-title" class="task-input" placeholder="Paper title e.g. CAT 1 2024 — Complex Variables" style="width:100%">
+                        <div style="display:flex;gap:8px;flex-wrap:wrap">
+                            <select id="pp-unit" class="task-select" style="flex:1">
+                                <option value="General">📌 General</option>
+                            </select>
+                            <select id="pp-type" class="task-select" style="flex:1">
+                                <option value="cat">📝 CAT Paper</option>
+                                <option value="revision">📚 Revision Paper</option>
+                                <option value="exam">🎯 Past Exam</option>
+                                <option value="notes">📃 Course Notes</option>
+                            </select>
+                        </div>
+                        <textarea id="pp-paste" class="st-textarea" style="min-height:70px" placeholder="Or paste paper content directly here..."></textarea>
+                        <div style="display:flex;gap:8px;justify-content:flex-end">
+                            <button class="btn btn-secondary" id="pp-clear-btn">Clear</button>
+                            <button class="btn btn-primary" id="pp-save-btn">💾 Save Paper</button>
+                            <button class="btn btn-primary" id="pp-optimize-btn" style="background:linear-gradient(135deg,rgba(167,139,250,0.15),rgba(167,139,250,0.05));border-color:var(--violet);color:var(--violet)">⚡ Save &amp; Optimize</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter row -->
+                <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+                    <div class="sn-search-wrap" style="flex:1">
+                        <span>🔍</span>
+                        <input type="text" id="pp-search" class="res-search-input" placeholder="Search papers...">
+                    </div>
+                    <select id="pp-filter-unit" class="task-select">
+                        <option value="all">All Units</option>
+                    </select>
+                    <select id="pp-filter-type" class="task-select">
+                        <option value="all">All Types</option>
+                        <option value="cat">📝 CAT Papers</option>
+                        <option value="revision">📚 Revision</option>
+                        <option value="exam">🎯 Past Exams</option>
+                        <option value="notes">📃 Notes</option>
+                    </select>
+                </div>
+
+                <!-- Papers list -->
+                <div id="pp-list"></div>
+
+                <!-- Optimized view -->
+                <div id="pp-result-card" class="sn-result-card" style="display:none">
+                    <div class="sn-result-header">
+                        <div>
+                            <div class="sn-result-title" id="pp-result-title">Optimized Paper</div>
+                            <div class="sn-result-meta" id="pp-result-meta"></div>
+                        </div>
+                        <div style="display:flex;gap:8px">
+                            <button class="btn btn-secondary" id="pp-copy-btn">📋 Copy</button>
+                            <button class="btn btn-secondary" id="pp-to-selftest-btn">🧪 → Self-Test</button>
+                            <button class="btn btn-primary" id="pp-save-note-btn">💾 Save to Notes</button>
+                        </div>
+                    </div>
+                    <div class="sn-result-body" id="pp-result-body"></div>
+                    <div class="sn-stats-bar" id="pp-stats-bar"></div>
+                </div>
+            </div>
+
+            <!-- ===== FOCUS MODE VIEW ===== -->
+            <div class="view" id="view-focus">
+                <div class="view-hero-banner">
+                    <img src="images/math_banner.png" alt="Focus Mode">
+                    <div class="view-hero-text">
+                        <span class="view-hero-label">🎯 Focus Mode</span>
+                        <span class="view-hero-sub">Full-screen Pomodoro timer · Study music · Zero distractions</span>
+                    </div>
+                </div>
+                <div class="focus-view-grid">
+                    <!-- Timer Card -->
+                    <div class="focus-view-card">
+                        <div class="fv-timer-display" id="fv-timer-display">25:00</div>
+                        <div class="fv-timer-label" id="fv-timer-label">🍅 Pomodoro — Session 1 of 4</div>
+                        <div class="fv-session-dots" id="fv-session-dots">
+                            <span class="fv-dot"></span><span class="fv-dot"></span><span class="fv-dot"></span><span class="fv-dot"></span>
+                        </div>
+                        <div class="fv-controls">
+                            <select id="fv-mode-sel" class="task-select">
+                                <option value="25">🍅 Pomodoro (25 min)</option>
+                                <option value="50">🔥 Deep Work (50 min)</option>
+                                <option value="90">🎯 Exam Sim (90 min)</option>
+                                <option value="15">☕ Short Break (15 min)</option>
+                            </select>
+                            <select id="fv-unit-sel" class="task-select">
+                                <option value="">Select unit to study...</option>
+                            </select>
+                        </div>
+                        <div class="fv-btn-row">
+                            <button class="fv-btn start" id="fv-start-btn">▶ Start</button>
+                            <button class="fv-btn pause" id="fv-pause-btn">⏸ Pause</button>
+                            <button class="fv-btn reset" id="fv-reset-btn">↻ Reset</button>
+                        </div>
+                        <div class="fv-session-count" id="fv-session-count">0 sessions completed today</div>
+                        <button class="btn btn-primary" id="fv-fullscreen-btn" style="margin-top:20px;width:100%">⛶ Enter Fullscreen Focus</button>
+                    </div>
+                    <!-- Music & Tips Card -->
+                    <div class="focus-view-card">
+                        <div class="fv-section-title">🎵 Study Music</div>
+                        <div class="fv-music-grid">
+                            <a href="https://youtu.be/jfKfPfyJRdk" target="_blank" class="fv-music-card">
+                                <span class="fv-music-icon">🎹</span>
+                                <span>Lo-fi Hip Hop</span>
+                            </a>
+                            <a href="https://youtu.be/5qap5aO4i9A" target="_blank" class="fv-music-card">
+                                <span class="fv-music-icon">☕</span>
+                                <span>Chillhop Radio</span>
+                            </a>
+                            <a href="https://youtu.be/n61ULEU7CO0" target="_blank" class="fv-music-card">
+                                <span class="fv-music-icon">🌲</span>
+                                <span>Nature Sounds</span>
+                            </a>
+                            <a href="https://youtu.be/DWcJFNfaw9c" target="_blank" class="fv-music-card">
+                                <span class="fv-music-icon">🎻</span>
+                                <span>Classical</span>
+                            </a>
+                        </div>
+                        <div class="fv-section-title" style="margin-top:24px">💡 Focus Tips</div>
+                        <div class="fv-tips">
+                            <div class="fv-tip">📵 Put your phone face-down during the session</div>
+                            <div class="fv-tip">💧 Keep a water bottle on your desk</div>
+                            <div class="fv-tip">📝 Write one goal before you start each block</div>
+                            <div class="fv-tip">🔁 After 4 pomodoros, take a 20-min long break</div>
+                            <div class="fv-tip">🧮 Work hardest units during peak hours (9–11 AM)</div>
+                        </div>
+                        <div class="fv-section-title" style="margin-top:24px">📊 Today's Focus</div>
+                        <div class="fv-today-stats" id="fv-today-stats">
+                            <div class="fv-stat"><span class="fv-stat-val" id="fv-today-sessions">0</span><span class="fv-stat-lbl">Sessions</span></div>
+                            <div class="fv-stat"><span class="fv-stat-val" id="fv-today-mins">0</span><span class="fv-stat-lbl">Minutes</span></div>
+                            <div class="fv-stat"><span class="fv-stat-val" id="fv-today-streak">0</span><span class="fv-stat-lbl">Day Streak</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ===== SETTINGS VIEW ===== -->
+            <div class="view" id="view-settings">
+                <div class="view-hero-banner">
+                    <img src="images/linear_algebra.png" alt="Settings">
+                    <div class="view-hero-text">
+                        <span class="view-hero-label">⚙ Settings &amp; Parameters</span>
+                        <span class="view-hero-sub">Personalise your MathEngine dashboard</span>
+                    </div>
+                </div>
+                <div class="settings-grid">
+                    <!-- Profile Card -->
+                    <div class="settings-card">
+                        <div class="settings-card-title">👤 Profile</div>
+                        <label class="st-label">Your Name</label>
+                        <input type="text" id="set-name" class="task-input" placeholder="e.g. Jim Githuthwa" style="width:100%;margin-bottom:12px">
+                        <label class="st-label">Student Number</label>
+                        <input type="text" id="set-regno" class="task-input" placeholder="e.g. ENM123-0456/2022" style="width:100%;margin-bottom:12px">
+                        <label class="st-label">School</label>
+                        <input type="text" id="set-school" class="task-input" value="JKUAT — School of Mathematical Sciences" style="width:100%;margin-bottom:12px">
+                        <label class="st-label">Programme</label>
+                        <input type="text" id="set-programme" class="task-input" value="BSc. Industrial Mathematics" style="width:100%;margin-bottom:16px">
+                        <button class="btn btn-primary" id="set-save-profile">💾 Save Profile</button>
+                    </div>
+                    <!-- Study Preferences -->
+                    <div class="settings-card">
+                        <div class="settings-card-title">📚 Study Preferences</div>
+                        <label class="st-label">Daily Study Hours Target</label>
+                        <input type="number" id="set-hours" class="task-input" min="1" max="16" value="6" style="width:100%;margin-bottom:12px">
+                        <label class="st-label">Study Start Time</label>
+                        <input type="time" id="set-start-time" class="task-input" value="07:00" style="width:100%;margin-bottom:12px">
+                        <label class="st-label">Study End Time</label>
+                        <input type="time" id="set-end-time" class="task-input" value="22:00" style="width:100%;margin-bottom:12px">
+                        <label class="st-label">Preferred Pomodoro Length (minutes)</label>
+                        <select id="set-pomodoro" class="task-select" style="width:100%;margin-bottom:16px">
+                            <option value="25" selected>25 min (Classic)</option>
+                            <option value="50">50 min (Deep Work)</option>
+                            <option value="90">90 min (Exam Sim)</option>
+                        </select>
+                        <button class="btn btn-primary" id="set-save-prefs">💾 Save Preferences</button>
+                    </div>
+                    <!-- Data Management -->
+                    <div class="settings-card">
+                        <div class="settings-card-title">🗄 Data &amp; Export</div>
+                        <p style="font-size:0.85rem;color:var(--text-secondary);margin-bottom:16px">All your data is stored locally in your browser. Nothing is sent to any server.</p>
+                        <button class="btn btn-secondary" id="set-export-data" style="width:100%;margin-bottom:10px">📤 Export All Data (JSON)</button>
+                        <button class="btn btn-secondary" id="set-print-plan" style="width:100%;margin-bottom:10px">🖨 Print Study Plan</button>
+                        <button class="btn btn-secondary" id="set-clear-notes" style="width:100%;margin-bottom:10px">🗑 Clear Smart Notes</button>
+                        <button class="btn btn-secondary" id="set-clear-tasks" style="width:100%;margin-bottom:10px">🗑 Clear Task Board</button>
+                        <button class="btn" id="set-reset-all" style="width:100%;border-color:#fb7185;color:#fb7185;background:rgba(251,113,133,0.07)">⚠ Reset All Data</button>
+                    </div>
+                    <!-- About Card -->
+                    <div class="settings-card">
+                        <div class="settings-card-title">ℹ About MathEngine</div>
+                        <div class="about-logo">∑</div>
+                        <div class="about-name">MathEngine</div>
+                        <div class="about-sub">BIM 3.2 · JKUAT · Sem II 2025/2026</div>
+                        <div class="about-features">
+                            <div class="about-feat">✅ Dashboard &amp; Countdown</div>
+                            <div class="about-feat">✅ AI Study Timetable</div>
+                            <div class="about-feat">✅ Grade Calculator</div>
+                            <div class="about-feat">✅ Progress Tracker (77 subtopics)</div>
+                            <div class="about-feat">✅ Flashcard System</div>
+                            <div class="about-feat">✅ Self-Test &amp; Exam Simulation</div>
+                            <div class="about-feat">✅ Smart Notes Optimizer</div>
+                            <div class="about-feat">✅ Past Papers Vault</div>
+                            <div class="about-feat">✅ Focus Mode</div>
+                            <div class="about-feat">✅ Group Work Tracker</div>
+                            <div class="about-feat">✅ Task Board (Kanban)</div>
+                            <div class="about-feat">✅ Attendance Tracker</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- ===== FOCUS MODE OVERLAY ===== -->
+    <div class="focus-overlay" id="focus-overlay">
+        <div class="focus-content">
+            <button class="focus-exit" id="focus-exit">✕ Exit Focus Mode</button>
+            <div class="focus-unit-label" id="focus-unit-label">Focus Session</div>
+            <div class="focus-timer-display" id="focus-timer-display">25:00</div>
+            <div class="focus-timer-label" id="focus-timer-label">Pomodoro • Session 1</div>
+            <div class="focus-timer-btns">
+                <button class="focus-btn" id="focus-start-btn">▶ Start</button>
+                <button class="focus-btn" id="focus-pause-btn">⏸ Pause</button>
+                <button class="focus-btn" id="focus-reset-btn">↻ Reset</button>
+            </div>
+            <div class="focus-cycles" id="focus-cycles">
+                <span class="focus-cycle done"></span>
+                <span class="focus-cycle"></span>
+                <span class="focus-cycle"></span>
+                <span class="focus-cycle"></span>
+            </div>
+            <!-- Music Links -->
+            <div class="focus-music">
+                <div class="focus-music-title">🎵 Study Music</div>
+                <div class="focus-music-links">
+                    <a href="https://youtu.be/jfKfPfyJRdk" target="_blank" class="music-link">🎹 Lo-fi Hip Hop</a>
+                    <a href="https://youtu.be/5qap5aO4i9A" target="_blank" class="music-link">☕ Chillhop</a>
+                    <a href="https://youtu.be/n61ULEU7CO0" target="_blank" class="music-link">🌲 Nature Sounds</a>
+                    <a href="https://youtu.be/DWcJFNfaw9c" target="_blank" class="music-link">🎶 Classical</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Context Menu (right-click / click popup) -->
+    <div class="ctx-menu" id="ctx-menu">
+        <div class="ctx-menu-header" id="ctx-menu-header">Options</div>
+        <div class="ctx-menu-body" id="ctx-menu-body"></div>
+    </div>
+
+    <!-- Modal Overlay -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-box" id="modal-box">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modal-title">Title</h3>
+                <button class="modal-close" id="modal-close">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body"></div>
+            <div class="modal-footer" id="modal-footer"></div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div class="toast" id="toast">
+        <span class="toast-icon" id="toast-icon">✓</span>
+        <span class="toast-msg" id="toast-msg">Saved!</span>
+    </div>
+
+    <!-- Focus Mode trigger button (floating) -->
+    <button class="focus-fab" id="focus-fab" title="Enter Focus Mode">🎯 Focus</button>
+    <!-- Export buttons -->
+    <button class="export-fab" id="export-btn" title="Export / Print">🖨 Export</button>
+    <script src="app.js"></script>
+    <script src="features.js"></script>
+    <script src="features2.js"></script>
+    <script src="features3.js"></script>
+    <script src="features4.js"></script>
+    <script src="features5.js"></script>
+    <script src="features6.js"></script>
+</body>
+</html>
